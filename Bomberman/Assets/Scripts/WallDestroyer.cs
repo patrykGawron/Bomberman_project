@@ -11,6 +11,7 @@ public class WallDestroyer : MonoBehaviour
 
     public Tile unbreakableWall;
     public Tile wall;
+    public PlayerMovement player;
     //public int explosionLength;
 
     public GameObject middleExplosion;
@@ -20,6 +21,7 @@ public class WallDestroyer : MonoBehaviour
     public GameObject bottomEndExplosion;
     public GameObject rightEndExplosion;
     public GameObject leftEndExplosion;
+    public GameObject wallBreak;
 
     public int explosionLength = 1;
     
@@ -69,19 +71,27 @@ public class WallDestroyer : MonoBehaviour
     bool ExplodeCell(Vector3Int cell, GameObject animation)
     {
         Tile tile = tilemap.GetTile<Tile>(cell);
+        
+        if(player.GetCell() == cell)
+        {
+            Debug.Log("Player has been hit!");
+        }
 
         if (tile == unbreakableWall)
         {
             return false;
         }
 
+        Vector3 pos = tilemap.GetCellCenterWorld(cell);
+
         if (tile == wall)
         {
             tilemap.SetTile(cell, null);
+            Instantiate(wallBreak, pos, Quaternion.identity);
+            return false;
         }
 
         // Create an explosion
-        Vector3 pos = tilemap.GetCellCenterWorld(cell);
         Instantiate(animation, pos, Quaternion.identity);
 
         return true;
