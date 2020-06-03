@@ -21,6 +21,11 @@ public class PlayerMovement : MonoBehaviour
     {
         return cell;
     }
+
+    public void KillPlayer()
+    {
+        animator.SetTrigger("Death");
+    }
     // Update is called once per frame
     void Update()
     {

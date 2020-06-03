@@ -6164,6 +6164,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6478444081648615664, guid: c3d6ebedb9895174eb5626707d812678,
+        type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 693440905}
     - target: {fileID: 6478444081648615669, guid: c3d6ebedb9895174eb5626707d812678,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6219,10 +6224,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6478444081648615664, guid: c3d6ebedb9895174eb5626707d812678,
+    - target: {fileID: 6478444081648615666, guid: c3d6ebedb9895174eb5626707d812678,
         type: 3}
-      propertyPath: tilemap
-      value: 
-      objectReference: {fileID: 693440905}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3d6ebedb9895174eb5626707d812678, type: 3}

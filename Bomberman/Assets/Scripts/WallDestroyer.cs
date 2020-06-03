@@ -74,6 +74,7 @@ public class WallDestroyer : MonoBehaviour
         
         if(player.GetCell() == cell)
         {
+            player.KillPlayer();
             Debug.Log("Player has been hit!");
         }
 
