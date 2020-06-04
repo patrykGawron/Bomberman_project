@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed = 2f;
+    public static bool IsDead = false;
 
     public Rigidbody2D rb;
     public Animator animator;
@@ -16,10 +17,22 @@ public class PlayerMovement : MonoBehaviour
     private Vector3Int cell;
     private Vector2 pos;
     private Vector2 setPos;
+    private Vector2 startPos;
 
     public Vector3Int GetCell()
     {
         return cell;
+    }
+
+    public void Start()
+    {
+        startPos = transform.position;
+        IsDead = false;
+    }
+
+    public void Reset()
+    {
+        pos = startPos;
     }
 
     public void KillPlayer()
@@ -37,6 +50,10 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", pos.sqrMagnitude);
 
         cell = tilemap.WorldToCell(rb.position);
+        //if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerDeath"))
+        //{
+        //    IsDead = true;
+        //}
     }
 
     private void FixedUpdate()
